@@ -1,10 +1,10 @@
 #!/bin/bash
 
-#if pidof -x "upload-check-loop.sh" >/dev/null; then
-if pgrep -xq -- "upload-check-loop.sh"; then
-        echo "already running"
-        exit
-else
-        cd ~/folder-importer; nohup ./upload-check-loop.sh >./log.txt 2>&1 &
+if ps aux | grep "upload-check-loop.sh" | grep -vq "grep"; then
+	echo "running"
 fi
+
+echo "Starting folder importer"
+cd ~/folder-importer; nohup ./upload-check-loop.sh > ./log.txt 2>&1 & echo $! > ./upload-check-loop.sh.pid
+
 
