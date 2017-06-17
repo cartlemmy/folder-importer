@@ -2,6 +2,7 @@
 
 if ps aux | grep "upload-check-loop.sh" | grep -vq "grep"; then
 	echo "running"
+	exit
 fi
 
 echo "Starting folder importer"
