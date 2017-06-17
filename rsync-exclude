@@ -1,0 +1,11 @@
+.DS_Store
+*.ph
+*.imported
+.AppleDB
+.AppleDouble
+.TemporaryItems
+.Trash*
+lost+found
+Thumbs.db
+fi-cmds
+.fi-sync/tmp

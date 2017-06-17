@@ -1,0 +1,4 @@
+rsync -e "ssh -i $HOME/.ssh/media${USER}_rsa.pub" \
+	-rvpt --ignore-existing --include-from "rsync-include" \
+	$OPTS --exclude-from "rsync-exclude" --delete \
+	"$UPLOAD_FROM_DIR" "paliportal@paliportal.com:/home/paliportal/public_html/data/folder-import/queue/$USER/"
