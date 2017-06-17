@@ -3,3 +3,5 @@
 ## Dependencies
 * curl
 * imagemagick
+
+Good luck
