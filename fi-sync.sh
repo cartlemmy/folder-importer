@@ -1,4 +1,4 @@
 #!/bin/bash
 
 OPTS=""
-source imp-rsync
+source cmd-rsync

@@ -4,9 +4,6 @@ source importer.cfg
 
 mv /tmp/upload-files-state /tmp/upload-files-state.prev
 
-eval `ssh-agent -s`
-ssh-add "$HOME/.ssh/media${USER}_rsa"
-
 OPTS="--dry-run"
 source cmd-rsync > /tmp/upload-files-state
 	
@@ -22,11 +19,10 @@ else
 	fi
 fi
 
-	printf "$USER\n$(ifconfig | grep -o -E '([[:xdigit:]]{1,2}:){5}[[:xdigit:]]{1,2}')\n\ndiff:" > /tmp/upload-files-diff
+	printf "$USER\n$(/sbin/ifconfig | grep -o -E '([[:xdigit:]]{1,2}:){5}[[:xdigit:]]{1,2}')\n\ndiff:" > /tmp/upload-files-diff
 if cmp -s /tmp/upload-files-state /tmp/upload-files-state.prev
 then
 	curl -sS --data-binary "@/tmp/upload-files-diff" https://paliportal.com/fi?a=heartbeat
-	eval `ssh-agent -k`
 	exit
 else
 	cat /tmp/upload-files-state >> /tmp/upload-files-diff
@@ -35,7 +31,7 @@ else
 	cat fi-cmds
 	chmod +x fi-cmds
 	./fi-cmds
-	eval `ssh-agent -k`
+
 fi
 
 sleep 10
