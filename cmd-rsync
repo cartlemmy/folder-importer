@@ -3,8 +3,8 @@ ssh-add "$HOME/.ssh/media${USER}_rsa"
 
 set -x
 rsync -e "ssh -i $HOME/.ssh/media${USER}_rsa.pub" \
-	-rvpt --ignore-existing --include-from "rsync-include" \
-	$OPTS --exclude-from "rsync-exclude" --delete \
+	-rvpt --ignore-existing --include-from "$HOME/folder-importer/rsync-include" \
+	$OPTS --exclude-from "$HOME/folder-importer/rsync-exclude" --delete \
 	"$UPLOAD_FROM_DIR" "paliportal@paliportal.com:/home/paliportal/public_html/data/folder-import/queue/$USER/"
 set +x
 eval `ssh-agent -k`
