@@ -4,7 +4,7 @@ ssh-add "$HOME/.ssh/media${USER}_rsa"
 set -x
 rsync -e "ssh -i $HOME/.ssh/media${USER}_rsa.pub" \
 	-rvpt --ignore-existing \
-	--filter="merge $HOME/folder-importer/fi-filter-dir" \
+	--filter="merge $HOME/folder-importer/fi-filter" \
 	$OPTS --delete \
 	"$UPLOAD_FROM_DIR" "paliportal@paliportal.com:/home/paliportal/public_html/data/folder-import/queue/$USER/"
 set +x
