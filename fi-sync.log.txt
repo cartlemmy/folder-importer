@@ -1,13 +1,6 @@
 ./fi-sync.sh: line 3: importer.cfg: No such file or directory
-Agent pid 3942
-/home/josh/.ssh/mediajosh_rsa: No such file or directory
-++ rsync -e 'ssh -i /home/josh/.ssh/mediajosh_rsa.pub' -rvpt --ignore-existing --include-from rsync-include --exclude-from rsync-exclude --delete '' paliportal@paliportal.com:/home/paliportal/public_html/data/folder-import/queue/josh/
-Warning: Identity file /home/josh/.ssh/mediajosh_rsa.pub not accessible: No such file or directory.
-stdin: is not a tty
-sending incremental file list
-cannot delete non-empty directory: .fi-sync
-
-sent 5,301 bytes  received 399 bytes  3,800.00 bytes/sec
-total size is 89,764  speedup is 15.75
-++ set +x
-Agent pid 3942 killed
+Agent pid 5399
+Warning: Identity file t not accessible: No such file or directory.
+ssh: Could not resolve hostname /home/josh/.ssh/mediajosh_rsa.pub: Name or service not known
+rsync: connection unexpectedly closed (0 bytes received so far) [sender]
+rsync error: unexplained error (code 255) at io.c(226) [sender=3.1.1]
