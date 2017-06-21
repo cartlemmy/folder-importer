@@ -13,6 +13,7 @@ if hash google-chrome 2>/dev/null; then
 elif hash firefox 2>/dev/null; then
 	firefox $OPEN_URL
 else
-	open $OPEN_URL
+	sed 's/[OPEN_URL]/$OPEN_URL/g' <redir.tpl.html >redir.html 
+	open redir.html
 fi
 
