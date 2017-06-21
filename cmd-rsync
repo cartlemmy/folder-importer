@@ -1,8 +1,7 @@
 eval `ssh-agent -s`
 ssh-add "$HOME/.ssh/media${USER}_rsa" >/dev/null 2>&1
 
-
-rsync -e "ssh -it $HOME/.ssh/media${USER}_rsa.pub" \
+rsync -e "ssh -i $HOME/.ssh/media${USER}_rsa.pub" \
 	-rvpt --ignore-existing \
 	--filter="merge $HOME/folder-importer/fi-filter" \
 	$OPTS --delete \
