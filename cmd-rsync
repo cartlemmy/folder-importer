@@ -1,5 +1,5 @@
-eval `ssh-agent -s` 2>&1 /dev/null
-ssh-add "$HOME/.ssh/media${USER}_rsa" 2>&1 /dev/null
+eval `ssh-agent -s` >/dev/null 2>&1
+ssh-add "$HOME/.ssh/media${USER}_rsa" >/dev/null 2>&1
 
 
 rsync -e "ssh -i $HOME/.ssh/media${USER}_rsa.pub" \
@@ -8,4 +8,4 @@ rsync -e "ssh -i $HOME/.ssh/media${USER}_rsa.pub" \
 	$OPTS --delete \
 	"$UPLOAD_FROM_DIR" "paliportal@paliportal.com:/home/paliportal/public_html/data/folder-import/queue/$USER/"
 
-eval `ssh-agent -k`  2>&1 /dev/null
+eval `ssh-agent -k` >/dev/null 2>&1
