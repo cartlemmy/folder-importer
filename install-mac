@@ -5,4 +5,5 @@ cd ~
 
 git clone https://github.com/cartlemmy/folder-importer
 
+cd folder-importer
 ./setup.sh
