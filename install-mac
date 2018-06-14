@@ -6,4 +6,7 @@ cd ~
 git clone https://github.com/cartlemmy/folder-importer
 
 cd folder-importer
-./setup.sh
+
+ls -l /Volumes # List harddrives to find name of drive to use in ./setup.sh
+
+#Run ./setup.sh
