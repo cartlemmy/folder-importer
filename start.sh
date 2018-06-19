@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if ps aux | grep "upload-check-loop.sh" | grep -vq "grep"; then
-	if [ $1 = "force" ]; then
+	if [ "$1" = "force" ]; then
 		echo "forcing restart"
 		pkill bash
 		pkill rsync
