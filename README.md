@@ -1,4 +1,4 @@
-# pali-folder-impoter
+# pali-folder-importer
 
 ## Dependencies
 * curl
