@@ -8,7 +8,7 @@ rsync -e "ssh -i $HOME/.ssh/media${USER}_rsa.pub" \
         --filter="merge $HOME/folder-importer/fi-filter" \
         $OPTS \
         . \
-        "paliportal@paliportal.com:/home/paliportal/public_html/data/folder-import/queue/$USER$TO_SUBFOLDER"
+        "paliportal@paliportal.com:/home/paliportal/public_html/data/folder-import/queue/$USER/$TO_SUBFOLDER"
 
 eval `ssh-agent -k` >/dev/null 2>&1
 
