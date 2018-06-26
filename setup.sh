@@ -17,6 +17,8 @@ if [ ! -f importer.cfg ]
   then
     printf "UPLOAD_FROM_DIR=\"${1}\"\n" > importer.cfg
     UPLOAD_FROM_DIR=$1
+	echo "FROM_SUBFOLDER=\"4. Summer \$(date +'%Y')/\"" >> importer.cfg
+	echo "TO_SUBFOLDER=\"Summer \$(date +'%Y')/\"" >> importer.cfg
 fi
 
 mkdir "${UPLOAD_FROM_DIR}.fi-sync";
