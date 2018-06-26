@@ -1,17 +1,17 @@
-+ /4. Summer 2018/
++ /Session */
+- /Session */__Cabin Photos
+- /Session */.DS_Store
+- /Session */_Birthdays
 
-+ /4. Summer 2018/Session */
-+ /4. Summer 2018/Session */**
-- /4. Summer 2018/Session */__Cabin Photos
-- /4. Summer 2018/Session */.DS_Store
-- /4. Summer 2018/Session */_Birthdays
++ /*Arrival Headshots/
+- /*Arrival Headshots/.DS_Store
 
-+ /4. Summer 2018/*Arrival Headshots/
-+ /4. Summer 2018/*Arrival Headshots/**
-- .DS_Store
+- /*
+
 - *.ph
 - *.imported
 - .AppleDB
+- /*/**/.DS_Store
 - .AppleDouble
 - .TemporaryItems
 - .Trash*
@@ -19,4 +19,3 @@
 - Thumbs.db
 - fi-cmds
 - .fi-sync/tmp
-- /**
