@@ -19,15 +19,16 @@ else
 	nohup ./fi-sync.sh "$UPLOAD_FROM_DIR" >> ./fi-sync.log.txt 2>&1 &
 fi
 
-	printf "$USER\n$(/sbin/ifconfig | grep -o -E '([[:xdigit:]]{1,2}:){5}[[:xdigit:]]{1,2}')\n\ndiff:" > "$TMP_PATH/upload-files-diff"
+printf "$USER\n$(/sbin/ifconfig | grep -o -E '([[:xdigit:]]{1,2}:){5}[[:xdigit:]]{1,2}')\n\ndiff:" > "$TMP_PATH/upload-files-diff"
+
 if cmp -s "$TMP_PATH/upload-files-state" "$TMP_PATH/upload-files-state.prev"
 then
 	curl -sS --data-binary "@$TMP_PATH/upload-files-state" https://paliportal.com/fi?a=heartbeat
 	exit
 else
-	#cat "$TMP_PATH/upload-files-state" >> "$TMP_PATH/upload-files-diff"
+	cat "$TMP_PATH/upload-files-state" >> "$TMP_PATH/upload-files-diff"
 	#printf "cd \"${UPLOAD_FROM_DIR}\"\n" > fi-cmds
-	curl -sS --data-binary "@$TMP_PATH/upload-files-state" https://paliportal.com/fi?a=status
+	curl -sS --data-binary"$TMP_PATH/upload-files-diff" https://paliportal.com/fi?a=status
 	#cat fi-cmds
 	#chmod +x fi-cmds
 	#./fi-cmds
