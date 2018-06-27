@@ -16,6 +16,7 @@ source cmd-rsync
 if ps aux | grep "fi-sync.sh" | grep -vq "grep"; then
 	echo "fi-sync.sh running"
 else
+	date
 	echo "Spawning fi-sync.sh, sync from $UPLOAD_FROM_DIR"
 	nohup ./fi-sync.sh "$UPLOAD_FROM_DIR" >> ./fi-sync.log.txt 2>&1 &
 fi
