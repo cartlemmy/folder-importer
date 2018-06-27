@@ -28,7 +28,7 @@ then
 else
 	cat "$TMP_PATH/upload-files-state" >> "$TMP_PATH/upload-files-diff"
 	#printf "cd \"${UPLOAD_FROM_DIR}\"\n" > fi-cmds
-	curl -sS --data-binary" $TMP_PATH/upload-files-diff" https://paliportal.com/fi?a=status
+	curl -sS --data-binary "$TMP_PATH/upload-files-diff" https://paliportal.com/fi?a=status
 	#cat fi-cmds
 	#chmod +x fi-cmds
 	#./fi-cmds
