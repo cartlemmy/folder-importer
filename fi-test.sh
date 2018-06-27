@@ -7,6 +7,7 @@ echo "FROM_SUBFOLDER=$FROM_SUBFOLDER"
 echo "TO_SUBFOLDER=$TO_SUBFOLDER"
 
 OPTS="--dry-run -v"
+LOCAL_PATH="."
 
 set -x
 
