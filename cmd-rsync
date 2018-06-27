@@ -3,9 +3,9 @@ ssh-add "$HOME/.ssh/media${USER}_rsa" >/dev/null 2>&1
 
 cd "$UPLOAD_FROM_DIR/$FROM_SUBFOLDER"
 if [ -z ${LOCAL_STATE+x} ]; then
-        REMOTE_FOLDER="paliportal@paliportal.com:/home/paliportal/public_html/data/folder-import/queue/$USER/$TO_SUBFOLDER
+        REMOTE_FOLDER="\"paliportal@paliportal.com:/home/paliportal/public_html/data/folder-import/queue/$USER/$TO_SUBFOLDER\""
 else
-                REMOTE_FOLDER=""
+        REMOTE_FOLDER=""
 fi
 
 rsync -e "ssh -i $HOME/.ssh/media${USER}_rsa.pub" \
