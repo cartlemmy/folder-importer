@@ -6,15 +6,13 @@ if [ "$FI_TYPE" == "LOCAL" ]; then
         rsync -e "ssh -i $HOME/.ssh/media${USER}_rsa.pub" \
         -ri --ignore-existing --prune-empty-dirs \
         --filter="merge $HOME/folder-importer/fi-filter" \
-        $OPTS . "paliportal@paliportal.com:/home/paliportal/public_html/data/folder-import/queue/$USER/$TO_SUBFOLDER" >\
-        $CMD_RSYNC_OUT
+        $OPTS . "paliportal@paliportal.com:/home/paliportal/public_html/data/folder-import/queue/$USER/$TO_SUBFOLDER">"$CMD_RSYNC_OUT"
         
 else
         rsync \
         -ri --ignore-existing --prune-empty-dirs \
         --filter="merge $HOME/folder-importer/fi-filter" \
-        $OPTS . >\
-        $CMD_RSYNC_OUT
+        $OPTS . >"$CMD_RSYNC_OUT"
 fi
 
 eval `ssh-agent -k` >/dev/null 2>&1
