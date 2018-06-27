@@ -8,6 +8,10 @@ echo "Link to import monitor:\n"
 echo $OPEN_URL
 echo "\n\n"
 
+if [ "$1" == "linkonly" ]; then
+	exit
+fi
+
 if hash google-chrome 2>/dev/null; then
 	google-chrome $OPEN_URL
 elif hash firefox 2>/dev/null; then
