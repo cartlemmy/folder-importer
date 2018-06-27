@@ -3,16 +3,17 @@ ssh-add "$HOME/.ssh/media${USER}_rsa" >/dev/null 2>&1
 
 cd "$UPLOAD_FROM_DIR/$FROM_SUBFOLDER"
 if [ "$FI_TYPE" == "LOCAL" ]; then
+         rsync \
+        -ri --ignore-existing --prune-empty-dirs \
+        --filter="merge $HOME/folder-importer/fi-filter" \
+        $OPTS . >"$CMD_RSYNC_OUT"
+       
+else
         rsync -e "ssh -i $HOME/.ssh/media${USER}_rsa.pub" \
         -ri --ignore-existing --prune-empty-dirs \
         --filter="merge $HOME/folder-importer/fi-filter" \
         $OPTS . "paliportal@paliportal.com:/home/paliportal/public_html/data/folder-import/queue/$USER/$TO_SUBFOLDER">"$CMD_RSYNC_OUT"
         
-else
-        rsync \
-        -ri --ignore-existing --prune-empty-dirs \
-        --filter="merge $HOME/folder-importer/fi-filter" \
-        $OPTS . >"$CMD_RSYNC_OUT"
 fi
 
 eval `ssh-agent -k` >/dev/null 2>&1
