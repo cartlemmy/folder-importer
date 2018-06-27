@@ -6,7 +6,7 @@ TMP_PATH="$(pwd)/tmp"
 mv "$TMP_PATH/upload-files-state" "$TMP_PATH/upload-files-state.prev"
 
 OPTS="--dry-run"
-LOCAL_PATH=""
+FI_TYPE="LOCAL"
 
 source cmd-rsync > "$TMP_PATH/upload-files-state"
 	
