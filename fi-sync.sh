@@ -3,6 +3,6 @@
 source importer.cfg
 
 OPTS=""
-LOCAL_PATH="."
+FI_TYPE="LOCAL"
 
 source cmd-rsync
