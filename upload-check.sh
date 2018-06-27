@@ -8,7 +8,8 @@ mv "$TMP_PATH/upload-files-state" "$TMP_PATH/upload-files-state.prev"
 OPTS="--dry-run"
 FI_TYPE="LOCAL"
 
-source cmd-rsync > "$TMP_PATH/upload-files-state"
+CMD_RSYNC_OUT="$TMP_PATH/upload-files-state"
+source cmd-rsync
 	
 #rsync -e "ssh -i $HOME/.ssh/media${USER}_rsa.pub" -arv  --include-from rsync-include --exclude-from rsync-exclude --delete "$UPLOAD_FROM_DIR" "paliportal@paliportal.com:/home/paliportal/public_html/data/folder-import/queue/$USER/" | grep -v 'bytes/sec' | grep -v 'speedup' > /tmp/upload-files-state
 
