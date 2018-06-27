@@ -2,16 +2,17 @@ eval `ssh-agent -s`
 ssh-add "$HOME/.ssh/media${USER}_rsa" >/dev/null 2>&1
 
 cd "$UPLOAD_FROM_DIR/$FROM_SUBFOLDER"
-if [ -z ${LOCAL_STATE+x} ]; then
-        REMOTE_FOLDER="\"paliportal@paliportal.com:/home/paliportal/public_html/data/folder-import/queue/$USER/$TO_SUBFOLDER\""
-else
-        REMOTE_FOLDER=""
-fi
-
-rsync -e "ssh -i $HOME/.ssh/media${USER}_rsa.pub" \
+if [ "$FI_TYPE" == "LOCAL" ]; then
+        rsync -e "ssh -i $HOME/.ssh/media${USER}_rsa.pub" \
         -ri --ignore-existing --prune-empty-dirs \
         --filter="merge $HOME/folder-importer/fi-filter" \
-        $OPTS $LOCAL_PATH $REMOTE_FOLDER
+        $OPTS . "paliportal@paliportal.com:/home/paliportal/public_html/data/folder-import/queue/$USER/$TO_SUBFOLDER"
+else
+        rsync \
+        -ri --ignore-existing --prune-empty-dirs \
+        --filter="merge $HOME/folder-importer/fi-filter" \
+        $OPTS .
+fi
 
 eval `ssh-agent -k` >/dev/null 2>&1
 
