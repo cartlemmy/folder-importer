@@ -11,7 +11,7 @@ else
         rsync -e "ssh -i $HOME/.ssh/media${USER}_rsa.pub" \
         -ri --ignore-existing --prune-empty-dirs \
         --filter="merge $HOME/folder-importer/fi-filter" \
-        $OPTS . "paliportal@paliportal.com:/home/paliportal/public_html/data/folder-import/queue/$USER/$TO_SUBFOLDER">>"$CMD_RSYNC_OUT"
+        $OPTS . "paliportal@paliportal.com:/home/paliportal/public_html/data/folder-import/queue/$USER/$TO_SUBFOLDER"
         
 fi
 
